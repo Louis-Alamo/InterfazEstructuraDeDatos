@@ -1,6 +1,7 @@
 from interfaz_grafica.componentes_personalizados.frames.FramePersonalizado import FramePersonalizado
 from interfaz_grafica.componentes_personalizados.componentes_multiples.Componente import Componente
 from interfaz_grafica.frames_unidades.unidad3.pilas.FramePilas import FramePilas
+from interfaz_grafica.frames_unidades.unidad3.colas.FrameColas import FrameColas
 class FrameUnidad3(FramePersonalizado):
 
     def __init__(self,master):
@@ -21,7 +22,8 @@ class FrameUnidad3(FramePersonalizado):
         self.agregar_lista_componentes(self.lista_componentes)
 
     def colas_funcion(self):
-        pass
+        self.frame = FrameColas(master=self, titulo="Colas")
+        self.frame.place(x=0, y=0)
 
     def listas_funcion(self):
         pass

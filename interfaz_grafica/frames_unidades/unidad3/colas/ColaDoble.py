@@ -1,4 +1,0 @@
-
-
-class ColaDoble():
-    pass
