@@ -1,0 +1,3 @@
+
+class ColaSimple():
+    pass
