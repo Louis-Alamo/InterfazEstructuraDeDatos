@@ -106,7 +106,7 @@ class FrameBurbuja(FramePersonalizadoExtra):
             dato = int(self.campo1.obtener_datos())
             self.arreglo[self.contadorUniversal] = dato
 
-            self.elementos_agregados.mostrar_informacion_estructura(self.arreglo)
+            self.elementos_agregados.mostrar_informacion_estructura_numerica(self.arreglo)
             messagebox.showinfo("exito", "Agregado correctamente")
             self.contadorUniversal += 1
         else:
@@ -136,7 +136,7 @@ class FrameBurbuja(FramePersonalizadoExtra):
         self.cuadro_pasadas.cambiar_valor(self.pasadas)
         self.cuadro_comparaciones.cambiar_valor(self.comparaciones)
         self.cuadro_movimientos.cambiar_valor(self.movimientos)
-        self.elementos_ordenados.mostrar_informacion_estructura(arreglo)
+        self.elementos_ordenados.mostrar_informacion_estructura_numerica(arreglo)
 
     def limpiar_valores(self):
         self.pasadas = 0
@@ -145,4 +145,4 @@ class FrameBurbuja(FramePersonalizadoExtra):
         self.cuadro_comparaciones.cambiar_valor(self.comparaciones)
         self.cuadro_movimientos.cambiar_valor(self.movimientos)
         self.cuadro_pasadas.cambiar_valor(self.pasadas)
-        self.elementos_ordenados.mostrar_informacion_estructura(" ")
+        self.elementos_ordenados.mostrar_informacion_estructura_numerica(" ")

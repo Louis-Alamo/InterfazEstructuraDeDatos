@@ -74,7 +74,7 @@ class FrameArregloDerechaIzquierda(FramePersonalizadoExtra):
         elif self.seleccion == "recursivo":
             resultado = self.comunicador.obtener_arreglo_recursivo_derecha_izquierda(self.arreglo)
 
-        self.area_texto.mostrar_informacion_estructura(resultado)
+        self.area_texto.mostrar_informacion_estructura_numerica(resultado)
 
 
     def limpiar_valores(self):

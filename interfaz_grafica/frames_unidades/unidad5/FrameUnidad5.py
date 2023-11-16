@@ -4,6 +4,7 @@ from interfaz_grafica.frames_unidades.unidad5.burbuja.FrameBurbuja import FrameB
 from interfaz_grafica.frames_unidades.unidad5.quick_sort.FrameQuickSort import FrameQuickSort
 from interfaz_grafica.frames_unidades.unidad5.shell_sort.FrameShellSort import FrameShellSort
 from interfaz_grafica.frames_unidades.unidad5.radix.FrameRadix import FrameRadix
+from interfaz_grafica.frames_unidades.unidad5.ordenacion_externa.FrameOrdenacionExterna import FrameOrdenacionExterna
 
 
 
@@ -27,6 +28,9 @@ class FrameUnidad5(FramePersonalizado):
         self.radix_componente = Componente("Radix", "Ordena los números procesando sus dígitos de menor a \nmayor o viceversa", master=self.canvas, funcion_nombre=self.radix_funcion)
         self.lista_componentes.append(self.radix_componente)
 
+        self.ordenacion_externa_componente = Componente("Ordenacion", "Ordena los números procesando sus dígitos de menor a \nmayor o viceversa", master=self.canvas, funcion_nombre=self.ordenacion_externa)
+        self.lista_componentes.append(self.ordenacion_externa_componente)
+
 
         super().agregar_lista_componentes(self.lista_componentes)
     #Algoritmos de ordenamiento interno
@@ -46,15 +50,9 @@ class FrameUnidad5(FramePersonalizado):
         self.frame_burbuja = FrameRadix(master=self,titulo="Radix")
         self.frame_burbuja.place(x=0, y=0)
 
+    def ordenacion_externa(self):
+        self.frame_burbuja = FrameOrdenacionExterna(master=self,titulo="Ordenacion externa")
+        self.frame_burbuja.place(x=0, y=0)
 
-    #Algoritmo de ordenamiento externo
 
-    def intercalacion_funcion(self):
-        pass
-
-    def mezcla_directa_funcion(self):
-        pass
-
-    def mezcla_natural_funcion(self):
-        pass
 

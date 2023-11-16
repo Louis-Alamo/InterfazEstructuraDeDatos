@@ -88,7 +88,7 @@ class FrameArboles(FramePersonalizadoExtra):
         self.lista_widgets.append(self.area_texto)
 
         lista = self.comunicador.recorrer_preorden()
-        self.area_texto.mostrar_informacion_estructura(lista)
+        self.area_texto.mostrar_informacion_estructura_numerica(lista)
 
     def recorrido_inorden(self):
         self.area_texto = AreaDeInformacion(self.frame_padre, titulo="Mostrando arbol inorden")
@@ -96,7 +96,7 @@ class FrameArboles(FramePersonalizadoExtra):
         self.lista_widgets.append(self.area_texto)
 
         lista = self.comunicador.recorrer_inorden()
-        self.area_texto.mostrar_informacion_estructura(lista)
+        self.area_texto.mostrar_informacion_estructura_numerica(lista)
 
 
     def recorrido_posorden(self):
@@ -105,7 +105,7 @@ class FrameArboles(FramePersonalizadoExtra):
         self.lista_widgets.append(self.area_texto)
 
         lista = self.comunicador.recorrer_posorden()
-        self.area_texto.mostrar_informacion_estructura(lista)
+        self.area_texto.mostrar_informacion_estructura_numerica(lista)
 
     def busqueda(self):
         self.campo = CampoConBoton(self.frame_padre, titulo="Ingrese el valor del nodo a buscar", nombre_boton="Buscar", nombre_funcion=lambda:buscar_funcion())

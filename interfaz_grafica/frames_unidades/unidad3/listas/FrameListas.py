@@ -115,13 +115,13 @@ class FrameListas(FramePersonalizadoExtra):
         self.area_texto.pack()
         self.lista_widgets.append(self.area_texto)
         lista = self.comunicador.recorrer_iterativo()
-        self.area_texto.mostrar_informacion_estructura(lista)
+        self.area_texto.mostrar_informacion_estructura_numerica(lista)
     def recorrer_recursivo(self):
         self.area_texto = AreaDeInformacion(self.frame_padre, titulo="Mostrando lista recursivo")
         self.area_texto.pack()
         self.lista_widgets.append(self.area_texto)
         lista = self.comunicador.recorrer_recursivo()
-        self.area_texto.mostrar_informacion_estructura(lista)
+        self.area_texto.mostrar_informacion_estructura_numerica(lista)
 
 
     #Metodos para insertar

@@ -23,7 +23,7 @@ class AreaDeInformacion(Frame):
         # Conectar el evento de desplazamiento del área de texto a la barra de desplazamiento
         self.area_texto.configure(yscrollcommand=self.scrollbar.set)
 
-    def mostrar_informacion_estructura(self, informacion):
+    def mostrar_informacion_estructura_numerica(self, informacion):
         # Filtrar los ceros y convertir los enteros a cadenas antes de mostrarlos
         elementos_validos = filter(lambda x: x != 0, informacion)
         texto_a_mostrar = "".join(map(str, elementos_validos))
