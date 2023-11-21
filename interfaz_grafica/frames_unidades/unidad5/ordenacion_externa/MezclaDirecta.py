@@ -5,7 +5,7 @@ class MezclaDirecta:
     def __init__(self, ruta_archivo):
         self.ruta_archivo = ruta_archivo
         self.informacion = "Informacion del proceso:\n"  # Variable para almacenar la información
-
+        self.tiempo = 0
     def generar_archivo_aleatorio(self, tamaño):
         with open(self.ruta_archivo, 'w') as f:
             datos = [random.randint(1, 1000) for _ in range(tamaño)]
@@ -37,15 +37,21 @@ class MezclaDirecta:
 
         tiempo_fin = time.time()
         tiempo_transcurrido = tiempo_fin - tiempo_inicio
-        self.agregar_informacion(f"\nOrdenamiento completado en {tiempo_transcurrido:.6f} segundos")
+        self.agregar_informacion(f"\nTiempo transcurrido: {tiempo_transcurrido}")
+        self.tiempo = tiempo_transcurrido
 
-        self.agregar_informacion("\nDatos finales de F1:")
+        self.agregar_informacion("\nDatos finales del archivo1:")
         with open('F1.txt', 'r') as f1:
             self.agregar_informacion(f1.read())
 
-        self.agregar_informacion("\nDatos finales de F2:")
+        self.agregar_informacion("\nDatos finales del archivo2:")
         with open('F2.txt', 'r') as f2:
             self.agregar_informacion(f2.read())
+
+        self.agregar_informacion("\nDatos finales del archivo original ordenados:")
+        with open('F3.txt', 'r') as f3:
+            self.agregar_informacion(f3.read())
+
     def particion(self, ruta_f1, ruta_f2, parte):
         with open(self.ruta_archivo, 'r') as f:
             datos = list(map(int, f.read().split()))

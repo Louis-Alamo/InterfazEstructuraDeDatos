@@ -5,6 +5,8 @@ from interfaz_grafica.frames_unidades.unidad5.quick_sort.FrameQuickSort import F
 from interfaz_grafica.frames_unidades.unidad5.shell_sort.FrameShellSort import FrameShellSort
 from interfaz_grafica.frames_unidades.unidad5.radix.FrameRadix import FrameRadix
 from interfaz_grafica.frames_unidades.unidad5.ordenacion_externa.FrameOrdenacionExterna import FrameOrdenacionExterna
+from interfaz_grafica.frames_unidades.unidad5.intercalacion.FrameIntercalacion import FrameIntercalacion
+from interfaz_grafica.frames_unidades.unidad5.mezcla_natural.FrameMezclaNatural import FrameMezclaNatural
 
 
 
@@ -28,8 +30,14 @@ class FrameUnidad5(FramePersonalizado):
         self.radix_componente = Componente("Radix", "Ordena los números procesando sus dígitos de menor a \nmayor o viceversa", master=self.canvas, funcion_nombre=self.radix_funcion)
         self.lista_componentes.append(self.radix_componente)
 
-        self.ordenacion_externa_componente = Componente("Ordenacion", "Ordena los números procesando sus dígitos de menor a \nmayor o viceversa", master=self.canvas, funcion_nombre=self.ordenacion_externa)
-        self.lista_componentes.append(self.ordenacion_externa_componente)
+        self.mezcla_directa_componente = Componente("Ordenacion", "Ordena los números procesando sus dígitos de menor a \nmayor o viceversa", master=self.canvas, funcion_nombre=self.ordenacion_externa)
+        self.lista_componentes.append(self.mezcla_directa_componente)
+
+        self.intercalacion_componente = Componente("Intercalacion", "Ordena los números procesando sus dígitos de menor a \nmayor o viceversa", master=self.canvas, funcion_nombre=self.intercalacion_funcion)
+        self.lista_componentes.append(self.intercalacion_componente)
+
+        self.mezcla_natural_componente = Componente("Mezcla natural", "Ordena los números procesando sus dígitos de menor a \nmayor o viceversa", master=self.canvas, funcion_nombre=self.mezcla_natural_funcion)
+        self.lista_componentes.append(self.mezcla_natural_componente)
 
 
         super().agregar_lista_componentes(self.lista_componentes)
@@ -54,5 +62,12 @@ class FrameUnidad5(FramePersonalizado):
         self.frame_burbuja = FrameOrdenacionExterna(master=self,titulo="Ordenacion externa")
         self.frame_burbuja.place(x=0, y=0)
 
+    def intercalacion_funcion(self):
+        self.frame_burbuja = FrameIntercalacion(master=self,titulo="Intercalacion")
+        self.frame_burbuja.place(x=0, y=0)
+
+    def mezcla_natural_funcion(self):
+        self.frame_burbuja = FrameMezclaNatural(master=self,titulo="Mezcla natural")
+        self.frame_burbuja.place(x=0, y=0)
 
 

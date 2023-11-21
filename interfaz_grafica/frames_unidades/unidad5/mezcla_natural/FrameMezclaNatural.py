@@ -3,26 +3,30 @@ from interfaz_grafica.componentes_personalizados.botones.BotonPersonalizado impo
 from interfaz_grafica.componentes_personalizados.botones.BotonSeleccionManera import BotonSeleccionManera
 from interfaz_grafica.componentes_personalizados.frames.FramePersonalizadoExtra import FramePersonalizadoExtra
 from interfaz_grafica.componentes_personalizados.componentes_multiples.AreaDeInformacion import AreaDeInformacion
+from interfaz_grafica.frames_unidades.unidad5.mezcla_natural.MezclaNatural import MezclaNatural
+from interfaz_grafica.frames_unidades.unidad5.mezcla_natural.MezclaNatural import MezclaNatural
 from interfaz_grafica.frames_unidades.unidad5.ordenacion_externa.MezclaDirecta import MezclaDirecta
 from tkinter import messagebox
 
-class FrameOrdenacionExterna(FramePersonalizadoExtra):
+class FrameMezclaNatural(FramePersonalizadoExtra):
 
     def __init__(self,master,titulo):
         super().__init__(master=master, titulo=titulo)
         self.separacion = 100
         self.comunicador = None
+        self.boton_seleccion_natural = BotonSeleccionManera(master=self, nombre_boton="Mezcla natural",
+                                                        nombre_funcion=self.seleccion)
+        self.boton_seleccion_natural.place(x=39, y=75)
 
-        self.boton_seleccion_mezcla = BotonSeleccionManera(master=self, nombre_boton="mezcla directa",
-                                                             nombre_funcion=self.seleccion_mezcla)
-        self.boton_seleccion_mezcla.place(x=39, y=75)
+
+        self.boton_seleccion_natural.seleccionado()
 
         self.campo1 = CampoConTitulo(master=self.canvas, titulo="Ingrese los valores del archivo 1 separados por comas")
         self.campo1.campo.configure(width=602)
         self.lista_componentes.append(self.campo1)
 
 
-        self.boton_resolver = BotonPersonalizado(master=self.canvas, funcion_boton=self.seleccion_opcion, nombre_boton="Ordenar")
+        self.boton_resolver = BotonPersonalizado(master=self.canvas, funcion_boton=self.resover, nombre_boton="Ordenar")
         self.lista_componentes.append(self.boton_resolver)
 
         self.area_texto = AreaDeInformacion(master=self.canvas, titulo="Valores ordenados")
@@ -33,34 +37,24 @@ class FrameOrdenacionExterna(FramePersonalizadoExtra):
 
 
         self.agregar_lista_componentes(self.lista_componentes)
-        self.seleccion_mezcla()
+        self.seleccion()
 
-
-
-    def seleccion_mezcla(self):
-        self.boton_seleccion_mezcla.seleccionado()
+    def seleccion(self):
         self.limpiar_valores()
-        messagebox.showinfo("",
-                            "Si ya tiene el archivo puede moverlo a la carpeta de archivos de esta misma ruta pero asegurese de que se llame F3.txt y presione el boton o bien modifique si ya esta el existente, o bien cree uno desde 0 con el campo")
-
-    def seleccion_opcion(self):
-        datos = self.campo1.obtener_datos().replace(',', ' ')
-        with open('F3.txt','w') as archivo3:
-            archivo3.write(datos)
 
 
-        self.comunicador = MezclaDirecta(ruta_archivo='F3.txt')
-        self.comunicador.mezcla_directa()
-        historial = self.comunicador.obtener_informacion()
-        self.area_texto.mostrar_texto_concatenado(historial)
-        print("No imprimio")
-        print("\nArchivo ordenado (archivo3.txt):")
-        with open('F3.txt', 'r') as f:
-            print(f.read())
+    def resover(self):
+        datos = self.campo1.obtener_datos()
+        datos = datos.replace("," ,"\n")
+        with open('F1.txt' , 'w') as archivo1:
+            archivo1.write(datos)
 
+        self.comunicador = MezclaNatural(nombre_archivo='F1.txt')
+        self.comunicador.inicio_algoritmo()
+        messagebox.showinfo("","Finalizo el ordenamiento")
+        with open('F1.txt', 'r') as archivo:
+            datos = archivo.read()
+
+        self.area_texto.mostrar_texto_concatenado(datos)
     def limpiar_valores(self):
         self.area_texto.limpiar_area()
-        self.campo1.limpiar_campo()
-
-
-
