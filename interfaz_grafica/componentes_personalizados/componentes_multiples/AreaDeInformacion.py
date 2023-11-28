@@ -26,7 +26,7 @@ class AreaDeInformacion(Frame):
     def mostrar_informacion_estructura_numerica(self, informacion):
         # Filtrar los ceros y convertir los enteros a cadenas antes de mostrarlos
         elementos_validos = filter(lambda x: x != 0, informacion)
-        texto_a_mostrar = "".join(map(str, elementos_validos))
+        texto_a_mostrar = "→".join(map(str, elementos_validos))
 
         # Habilitar el área de texto, configurar el texto y deshabilitarla nuevamente
         self.area_texto.configure(state="normal")

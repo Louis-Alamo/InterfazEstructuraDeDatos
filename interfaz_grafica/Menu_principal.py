@@ -5,6 +5,7 @@ from interfaz_grafica.frames_unidades.unidad2.FrameUnidad2 import FrameUnidad2
 from interfaz_grafica.frames_unidades.unidad3.FrameUnidad3 import FrameUnidad3
 from interfaz_grafica.frames_unidades.unidad4.FrameUnidad4 import FrameUnidad4
 from interfaz_grafica.frames_unidades.unidad5.FrameUnidad5 import FrameUnidad5
+from interfaz_grafica.frames_unidades.unidad6.FrameUnidad6 import FrameUnidad6
 from interfaz_grafica.componentes_personalizados.botones.BotonUnidad import BotonUnidad
 
 
@@ -38,6 +39,9 @@ class Menu_principal():
         self.boton_unidad5 = BotonUnidad(master=self.menu_ventana, nombre_boton="Unidad 5", nombre_funcion=self.unidad5_funcion)
         self.boton_unidad5.place(x=0,y=325)
 
+        self.boton_unidad6 = BotonUnidad(master=self.menu_ventana, nombre_boton="Unidad 6", nombre_funcion=self.unidad6_funcion)
+        self.boton_unidad6.place(x=0,y=375)
+
         self.ultimo_boton = self.boton_unidad1
         self.ultimo_boton.seleccionado()
 
@@ -68,8 +72,6 @@ class Menu_principal():
         self.frame = FrameUnidad2(self.menu_ventana)
         self.frame.place(x=194, y=11)
 
-
-
     def unidad3_funcion(self):
         self.ultimo_boton.deseleccionado()
         self.ultimo_boton = self.boton_unidad3
@@ -94,6 +96,12 @@ class Menu_principal():
         self.frame = FrameUnidad5(self.menu_ventana)
         self.frame.place(x=194, y=11)
 
+    def unidad6_funcion(self):
+        self.ultimo_boton.deseleccionado()
+        self.ultimo_boton = self.boton_unidad6
+        self.ultimo_boton.seleccionado()
 
+        self.frame = FrameUnidad6(self.menu_ventana)
+        self.frame.place(x=194, y=11)
 
 Menu_principal()

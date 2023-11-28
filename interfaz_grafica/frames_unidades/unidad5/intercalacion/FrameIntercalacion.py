@@ -44,6 +44,7 @@ class FrameIntercalacion(FramePersonalizadoExtra):
     def seleccion(self):
         self.boton_seleccion.seleccionado()
     def resolver(self):
+        datos = None
         datos = self.campo1.obtener_datos()
         datos = datos.replace("," ,"\n")
         with open('F1.txt' , 'w') as archivo1:
