@@ -1,10 +1,10 @@
 from interfaz_grafica.componentes_personalizados.frames.FramePersonalizado import FramePersonalizado
 from interfaz_grafica.componentes_personalizados.componentes_multiples.Componente import Componente
-
+from interfaz_grafica.frames_unidades.unidad3.listas.FrameListas import FrameListas
 from interfaz_grafica.frames_unidades.unidad6.busqueda_binaria.FrameBusquedaBinaria import FrameBusquedaBinaria
 from interfaz_grafica.frames_unidades.unidad6.busqueda_secuencial.desordenado.FrameSecuencialDesordenado import FrameSecuencialDesordenado
 from interfaz_grafica.frames_unidades.unidad6.busqueda_secuencial.ordenado.FrameSecuencialOrdenado import FrameSecuencialOrdenado
-
+from interfaz_grafica.frames_unidades.unidad6.busqueda_funciones_hash.FrameBusquedaFuncionesHash import FrameBusquedaFuncionesHash
 
 class FrameUnidad6(FramePersonalizado):
 
@@ -44,11 +44,13 @@ class FrameUnidad6(FramePersonalizado):
         self.frame.place(x=0, y=0)
 
     def secuencial_listas(self):
-        pass
+        self.frame = FrameListas(master=self, titulo="Listas ligadas")
+        self.frame.place(x=0, y=0)
 
     def busqueda_binaria(self):
         self.frame = FrameBusquedaBinaria(master=self, titulo="Busqueda binaria")
         self.frame.place(x=0, y=0)
 
     def busqueda_funciones_hash(self):
-        pass
+        self.frame = FrameBusquedaFuncionesHash(master=self, titulo="Por division")
+        self.frame.place(x=0, y=0)
